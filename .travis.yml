@@ -3,4 +3,7 @@ services:
   - docker
 
 before_install: 
-  - docker build -t mjcloudguru/docker-react -f Dockerfile .
+  - docker build -t mjcloudguru/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run mjcloudguru/docker-react npm run test -- -- converge
