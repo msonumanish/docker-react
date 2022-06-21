@@ -8,3 +8,14 @@ before_install:
 
 scripts:
   - docker run -e CI=true mjcloudguru/docker-react npm run test -- --coverage
+
+# Deploy on AWS
+deploy: 
+  provider: elasticbeanstalk
+  region: us-east-1
+  app: docker-react
+  env: Dockerreact-env
+  bucket_name: elasticbeanstalk-us-east-1-807692926958
+  bucket_path: docker-react
+  on:
+    branch: master
